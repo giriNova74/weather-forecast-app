@@ -5,7 +5,7 @@ pipeline {
     environment {
 
         SONAR_TOKEN = credentials('sonar-token')
-        DOCKER_CREDS = credentials('dockerhub-creds')
+        DOCKER_CREDS = credentials('docker-creds')
 
         IMAGE_NAME = "girinova74/weather-app"
         IMAGE_TAG = "${BUILD_NUMBER}"
