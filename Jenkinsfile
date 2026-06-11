@@ -4,7 +4,7 @@ pipeline {
 
     environment {
 
-          <!--SONAR_TOKEN = credentials('sonar-token')-->
+          
        DOCKER_CREDS = credentials('docker-creds')
 
         IMAGE_NAME = "girinova74/weather-app"
@@ -30,18 +30,6 @@ pipeline {
                 sh 'pytest'
             }
         }
-
-          <!--stage('Sonar Scan') {
-            steps {
-                sh '''
-                sonar-scanner \
-                -Dsonar.projectKey=weather-app \
-                -Dsonar.sources=. \
-                -Dsonar.host.url=http://localhost:9000 \
-                -Dsonar.login=$SONAR_TOKEN
-                '''
-            }
-        }-->
 
         stage('Docker Build') {
             steps {
