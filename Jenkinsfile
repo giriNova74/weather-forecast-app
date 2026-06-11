@@ -7,7 +7,7 @@ pipeline {
           
        DOCKER_CREDS = credentials('docker-creds')
 
-        IMAGE_NAME = "girinova74/weather-app"
+        IMAGE_NAME = "giriprasad74/weather-app"
         IMAGE_TAG = "${BUILD_NUMBER}"
     }
 
