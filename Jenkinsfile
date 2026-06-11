@@ -4,8 +4,8 @@ pipeline {
 
     environment {
 
-        SONAR_TOKEN = credentials('sonar-token')
-        DOCKER_CREDS = credentials('docker-creds')
+          <!--SONAR_TOKEN = credentials('sonar-token')-->
+       DOCKER_CREDS = credentials('docker-creds')
 
         IMAGE_NAME = "girinova74/weather-app"
         IMAGE_TAG = "${BUILD_NUMBER}"
@@ -15,7 +15,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: 'main', url:'https://github.com/giriNova74/weather-forecast-app.git'
+                git branch: 'master', url:'https://github.com/giriNova74/weather-forecast-app.git'
             }
         }
 
@@ -31,7 +31,7 @@ pipeline {
             }
         }
 
-        stage('Sonar Scan') {
+          <!--stage('Sonar Scan') {
             steps {
                 sh '''
                 sonar-scanner \
@@ -41,7 +41,7 @@ pipeline {
                 -Dsonar.login=$SONAR_TOKEN
                 '''
             }
-        }
+        }-->
 
         stage('Docker Build') {
             steps {
