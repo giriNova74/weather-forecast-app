@@ -57,5 +57,18 @@ pipeline {
                 '''
             }
         }
+        stage('Deploy') {
+    steps {
+        sh '''
+        docker stop weather-app || true
+        docker rm weather-app || true
+
+        docker run -d \
+        --name weather-app \
+        -p 8000:8000 \
+        $IMAGE_NAME:$IMAGE_TAG
+        '''
+    }
+}
     }
 }
